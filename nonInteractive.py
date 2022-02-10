@@ -16,7 +16,7 @@ def checkValidCoeffs(coeffs):
             return False, resArray
     return True, resArray
 
-coeffs = readFile('./common/files/coeffs.txt')
+coeffs = readFile(input('input path to file: '))
 
 flagValig, validCoeffs = checkValidCoeffs(coeffs)
 
