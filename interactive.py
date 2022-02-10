@@ -1,5 +1,4 @@
 from math import *
-
 from common.helpers.quadraticEquation import calculateFunction, is_adv_digit
 
 def checkTypeCoefficient(coef):

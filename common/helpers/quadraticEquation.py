@@ -1,8 +1,17 @@
+import math
+
+def checkType(value):
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
+
 def is_adv_digit(x): 
     if(x.isdigit()): 
         return x[:1]!='-' 
     else:
-        return x[1:].isdigit()
+        return (checkType(x))
 
 def calculateFunction (a, b, c):
     discr = b ** 2 - 4 * a * c

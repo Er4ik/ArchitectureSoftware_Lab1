@@ -11,10 +11,15 @@ def checkValidCoeffs(coeffs):
     if(len(values) > 3): return 'Invalid coefficients in file!'
     for value in values:
         if(is_adv_digit(value)): resArray.append(float(value))
-        else: return 'Invalid coefficients in file!'
-    return resArray
+        else: 
+            print('Invalid coefficients in file!')
+            return False, resArray
+    return True, resArray
 
 coeffs = readFile('./common/files/coeffs.txt')
-validCoeffs = checkValidCoeffs(coeffs)
-calculateFunction(*validCoeffs)
-print(*validCoeffs)
+
+flagValig, validCoeffs = checkValidCoeffs(coeffs)
+
+if flagValig:
+    print(f'Equation is: ({validCoeffs[0]}) x^2 + ({validCoeffs[1]}) x + {validCoeffs[2]} = 0')
+    calculateFunction(*validCoeffs)
