@@ -19,8 +19,3 @@ def inputCoefficient():
     c = checkTypeCoefficient(input(white + "c = " + bold + green))
     print(white + 'Equation is: ({a}) x^2 + ({b}) x + {c} = 0')
     return a, b, c
-
-
-
-a, b, c = inputCoefficient()
-calculateFunction(a, b, c)

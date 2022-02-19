@@ -1,9 +1,15 @@
+from msilib.schema import Error
 from common.helpers.quadraticEquation import calculateFunction, is_adv_digit
 
 def readFile(path): 
-    fileWithCoefficients = open(path, 'r')
-    lineCoeffs = fileWithCoefficients.readline()
-    return lineCoeffs
+    try:
+        red  = '\033[31m'
+        white  = '\033[0m' 
+        fileWithCoefficients = open(path, 'r')
+        lineCoeffs = fileWithCoefficients.readline()
+        return lineCoeffs
+    except FileNotFoundError:
+        print(red + f"Error ---> can't read file by path - {path}" + white)
 
 def checkValidCoeffs(coeffs): 
     resArray = []
@@ -15,11 +21,3 @@ def checkValidCoeffs(coeffs):
             print('Invalid coefficients in file!')
             return False, resArray
     return True, resArray
-
-coeffs = readFile(input('input path to file: '))
-
-flagValig, validCoeffs = checkValidCoeffs(coeffs)
-
-if flagValig:
-    print(f'Equation is: ({validCoeffs[0]}) x^2 + ({validCoeffs[1]}) x + {validCoeffs[2]} = 0')
-    calculateFunction(*validCoeffs)
